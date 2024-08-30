@@ -1,0 +1,3 @@
+[submodule "BaruahEngine/vendor/spdlog"]
+	path = BaruahEngine/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
