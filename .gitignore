@@ -33,4 +33,7 @@
 
 bin/
 bin-int/
+**.sln
+**.vcxproj
+**.vcxproj.**
 
