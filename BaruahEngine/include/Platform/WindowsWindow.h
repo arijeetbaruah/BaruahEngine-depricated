@@ -21,6 +21,12 @@ namespace Baruah {
 	private:
 		virtual void Initialize(const WindowDatum& datum);
 		virtual void Shutdown();
+
+		void SetWindowSizeCallback();
+		void SetWindowCloseCallback();
+		void SetWindowFocusCallback();
+		void SetKeyCallback();
+		void SetMouseCallback();
 	private:
 		GLFWwindow* m_Window;
 

@@ -17,3 +17,5 @@
 #define BE_ASSERT(x, ...)
 #define BE_CORE_ASSERT(x, ...)
 #endif
+
+#define BE_BIND(x) std::bind(&x, this, std::placeholders::_1)

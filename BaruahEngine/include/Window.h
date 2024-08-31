@@ -17,7 +17,7 @@ namespace Baruah {
 	class BARUAH_API Window
 	{
 	public:
-		using EventCallbackFn = std::function<void(Event&)>;
+		using EventCallbackFn = std::function<void(Baruah::Event&)>;
 
 		virtual ~Window() {}
 
