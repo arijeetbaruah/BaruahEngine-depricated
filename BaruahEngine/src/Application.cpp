@@ -1,3 +1,5 @@
+#include "bepch.h"
+
 #include "../include/Application.h"
 #include "../include/Log.h"
 

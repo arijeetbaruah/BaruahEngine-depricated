@@ -12,6 +12,9 @@ project "BaruahEngine"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "bepch.h"
+    pchsource "BaruahEngine/src/bepch.cpp"
+
     files
     {
         "%{prj.name}/src/**.cpp",
@@ -20,6 +23,7 @@ project "BaruahEngine"
 
     includedirs
     {
+        "%{prj.name}/include",
         "%{prj.name}/vendor/spdlog/include"
     }
 
