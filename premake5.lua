@@ -29,6 +29,7 @@ project "BaruahEngine"
 
     includedirs
     {
+        "%{prj.name}/include",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}"
     }
@@ -37,7 +38,7 @@ project "BaruahEngine"
 
     filter "system:windows"
         cppdialect "c++20"
-        staticruntime "On"
+        staticruntime "off"
         systemversion "latest"
 
         defines { "BE_PLATFORM_WINDOW", "BE_BUILD_DLL" }
