@@ -33,7 +33,37 @@ namespace Baruah {
 	public:
 		WindowCloseEvent() {}
 
+		std::string ToString() const override {
+			return "WindowCloseEvent";
+		}
+
 		EVENT_CLASS_TYPE(WindowClose)
+			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+	};
+
+	class BARUAH_API WindowFocusEvent : public Event
+	{
+	public:
+		WindowFocusEvent() {}
+
+		std::string ToString() const override {
+			return "WindowFocusEvent";
+		}
+
+		EVENT_CLASS_TYPE(WindowFocus)
+			EVENT_CLASS_CATEGORY(EventCategoryApplication)
+	};
+
+	class BARUAH_API WindowUnFocusEvent : public Event
+	{
+	public:
+		WindowUnFocusEvent() {}
+
+		std::string ToString() const override {
+			return "WindowUnFocusEvent";
+		}
+
+		EVENT_CLASS_TYPE(WindowFocus)
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 

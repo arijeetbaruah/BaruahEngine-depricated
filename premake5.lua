@@ -4,6 +4,11 @@ workspace "BaruahEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "BaruahEngine/vendor/GLFW/include"
+
+include "BaruahEngine/vendor/GLFW"
+
 project "BaruahEngine"
     location "BaruahEngine"
     kind "SharedLib"
@@ -18,18 +23,22 @@ project "BaruahEngine"
     files
     {
         "%{prj.name}/src/**.cpp",
-        "%{prj.name}/include/**.h"
+        "%{prj.name}/include/**.h",
+        "%{prj.name}/include/**.cpp"
     }
 
     includedirs
     {
         "%{prj.name}/include",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
     }
+
+    links { "GLFW", "opengl32.lib" }
 
     filter "system:windows"
         cppdialect "c++20"
-        staticruntime "On"
+        staticruntime "off"
         systemversion "latest"
 
         defines { "BE_PLATFORM_WINDOW", "BE_BUILD_DLL" }
@@ -68,12 +77,13 @@ project "Sandbox"
     includedirs
     {
         "BaruahEngine/vendor/spdlog/include",
-        "BaruahEngine/include"
+        "BaruahEngine/include",
+        "%{IncludeDir.GLFW}"
     }
 
     links
     {
-        "BaruahEngine"
+        "BaruahEngine","GLFW", "opengl32.lib"
     }
 
     filter "system:windows"

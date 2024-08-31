@@ -1,3 +1,6 @@
 [submodule "BaruahEngine/vendor/spdlog"]
 	path = BaruahEngine/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "BaruahEngine/vendor/GLFW"]
+	path = BaruahEngine/vendor/GLFW
+	url = https://github.com/TheCherno/glfw.git
