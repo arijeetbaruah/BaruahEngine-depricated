@@ -4,6 +4,7 @@
 
 #include "Application.h"
 #include "Log.h"
+#include "Layer.h"
 
 //------Entry Point------//
 #include "EntryPoint.h"
