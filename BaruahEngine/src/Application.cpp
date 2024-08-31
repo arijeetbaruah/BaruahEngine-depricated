@@ -1,7 +1,6 @@
 #include "bepch.h"
 
 #include "../include/Application.h"
-#include "../include/Log.h"
 
 #include "../include/Events/ApplicationEvent.h"
 
@@ -10,6 +9,8 @@ namespace Baruah {
 	{
 		Baruah::Log::Initialize();
 		BE_CORE_INFO("Welcome to Baruah Engine");
+
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -21,9 +22,9 @@ namespace Baruah {
 		WindowResizeEvent e(1280, 720);
 		BE_TRACE(e.ToString());
 
-		while (true)
+		while (m_Running)
 		{
-
+			m_Window->OnUpdate();
 		}
 	}
 }
