@@ -7,9 +7,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "BaruahEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "BaruahEngine/vendor/Glad/include"
+IncludeDir["ImGui"] = "BaruahEngine/vendor/imgui"
 
 include "BaruahEngine/vendor/GLFW"
 include "BaruahEngine/vendor/Glad"
+include "BaruahEngine/vendor/imgui"
 
 project "BaruahEngine"
     location "BaruahEngine"
@@ -34,10 +36,11 @@ project "BaruahEngine"
         "%{prj.name}/include",
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.Glad}",
+        "%{IncludeDir.ImGui}"
     }
 
-    links { "GLFW", "Glad", "opengl32.lib" }
+    links { "GLFW", "Glad", "ImGui", "opengl32.lib" }
 
     filter "system:windows"
         cppdialect "c++20"

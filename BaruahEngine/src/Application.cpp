@@ -6,8 +6,13 @@
 #include "../include/Events/ApplicationEvent.h"
 
 namespace Baruah {
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		BE_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		Baruah::Log::Initialize();
 		BE_CORE_INFO("Welcome to Baruah Engine");
 
@@ -51,11 +56,13 @@ namespace Baruah {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
