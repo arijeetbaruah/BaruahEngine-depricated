@@ -37,4 +37,14 @@ namespace Baruah {
 
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class BARUAH_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keycode);
+
+		std::string ToString() const override;
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }

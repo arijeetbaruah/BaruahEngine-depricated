@@ -23,4 +23,16 @@ namespace Baruah {
 		ss << "KeyReleasedEvent: " << m_KeyCode;
 		return ss.str();
 	}
+
+	KeyTypedEvent::KeyTypedEvent(int keycode)
+		: KeyEvent(keycode)
+	{
+	}
+
+	std::string KeyTypedEvent::ToString() const
+	{
+		std::stringstream ss;
+		ss << "KeyTypedEvent: " << m_KeyCode;
+		return ss.str();
+	}
 }
