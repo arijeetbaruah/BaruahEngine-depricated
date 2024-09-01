@@ -1,6 +1,7 @@
 #include "bepch.h"
 
 #include "../include/Application.h"
+#include <glad/glad.h>
 
 #include "../include/Events/ApplicationEvent.h"
 

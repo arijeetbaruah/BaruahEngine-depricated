@@ -6,8 +6,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "BaruahEngine/vendor/GLFW/include"
+IncludeDir["Glad"] = "BaruahEngine/vendor/Glad/include"
 
 include "BaruahEngine/vendor/GLFW"
+include "BaruahEngine/vendor/Glad"
 
 project "BaruahEngine"
     location "BaruahEngine"
@@ -31,17 +33,18 @@ project "BaruahEngine"
     {
         "%{prj.name}/include",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
-    links { "GLFW", "opengl32.lib" }
+    links { "GLFW", "Glad", "opengl32.lib" }
 
     filter "system:windows"
         cppdialect "c++20"
         staticruntime "off"
         systemversion "latest"
 
-        defines { "BE_PLATFORM_WINDOW", "BE_BUILD_DLL" }
+        defines { "BE_PLATFORM_WINDOW", "BE_BUILD_DLL", "GLFW_INCLUDE_NONE" }
 
         postbuildcommands
         {
@@ -78,7 +81,7 @@ project "Sandbox"
     {
         "BaruahEngine/vendor/spdlog/include",
         "BaruahEngine/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
     }
 
     links
