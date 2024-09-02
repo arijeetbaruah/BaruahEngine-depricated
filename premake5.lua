@@ -84,12 +84,11 @@ project "Sandbox"
     {
         "BaruahEngine/vendor/spdlog/include",
         "BaruahEngine/include",
-        "%{IncludeDir.GLFW}",
     }
 
     links
     {
-        "BaruahEngine","GLFW", "opengl32.lib"
+        "BaruahEngine", "opengl32.lib"
     }
 
     filter "system:windows"
