@@ -8,6 +8,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "BaruahEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "BaruahEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "BaruahEngine/vendor/imgui"
+IncludeDir["glm"] = "vendor/glm"
 
 include "BaruahEngine/vendor/GLFW"
 include "BaruahEngine/vendor/Glad"
@@ -37,7 +38,8 @@ project "BaruahEngine"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}"
+        "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}"
     }
 
     links { "GLFW", "Glad", "ImGui", "opengl32.lib" }
@@ -84,6 +86,7 @@ project "Sandbox"
     {
         "BaruahEngine/vendor/spdlog/include",
         "BaruahEngine/include",
+        "%{IncludeDir.glm}"
     }
 
     links
