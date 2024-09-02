@@ -30,6 +30,8 @@ namespace Baruah {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync(bool enabled) const = 0;
 
+		virtual void* GetNativeWindow() = 0;
+
 		static Window* Create(const WindowDatum& datum = WindowDatum());
 	};
 }

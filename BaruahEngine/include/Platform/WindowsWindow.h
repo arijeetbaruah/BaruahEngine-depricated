@@ -40,5 +40,8 @@ namespace Baruah {
 		};
 
 		WindowData m_Data;
+
+		// Inherited via Window
+		void* GetNativeWindow() override;
 	};
 }

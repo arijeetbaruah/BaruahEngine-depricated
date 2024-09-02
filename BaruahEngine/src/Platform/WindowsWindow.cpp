@@ -163,6 +163,11 @@ namespace Baruah {
 		});
 	}
 
+	void* WindowsWindow::GetNativeWindow()
+	{
+		return m_Window;
+	}
+
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();

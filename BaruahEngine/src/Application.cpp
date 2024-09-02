@@ -1,9 +1,12 @@
 #include "bepch.h"
 
 #include "../include/Application.h"
+#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
 #include "../include/Events/ApplicationEvent.h"
+#include <Input/Input.h>
+#include <Log.h>
 
 namespace Baruah {
 	Application* Application::s_Instance = nullptr;
@@ -52,6 +55,11 @@ namespace Baruah {
 
 			for (Layer* layer : m_LayerStack) {
 				layer->OnUpdate();
+			}
+
+			if (Input::IsKeyPressed(GLFW_KEY_F))
+			{
+				BE_INFO("Key Pressed F");
 			}
 
 			m_Window->OnUpdate();
