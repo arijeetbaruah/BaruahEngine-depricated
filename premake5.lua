@@ -1,6 +1,7 @@
 workspace "BaruahEngine"
 	configurations { "Debug", "Release", "Dist" }
 	architecture "x64"
+    startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 

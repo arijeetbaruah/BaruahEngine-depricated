@@ -3,7 +3,7 @@
 
 SandboxApp::SandboxApp()
 {
-	PushOverlay(new Baruah::ImGuiLayer());
+	
 }
 
 SandboxApp::~SandboxApp()

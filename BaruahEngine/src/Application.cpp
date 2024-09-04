@@ -21,6 +21,9 @@ namespace Baruah {
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BE_BIND(Application::OnEvent));
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -57,10 +60,10 @@ namespace Baruah {
 				layer->OnUpdate();
 			}
 
-			if (Input::IsKeyPressed(GLFW_KEY_F))
-			{
-				BE_INFO("Key Pressed F");
-			}
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

@@ -6,6 +6,8 @@
 #include "Layer.h"
 #include "LayerStack.h"
 
+#include "ImGui/ImGuiLayer.h"
+
 namespace Baruah {
 	class BARUAH_API Application
 	{
@@ -29,6 +31,7 @@ namespace Baruah {
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+		ImGuiLayer* m_ImGuiLayer;
 
 		static Application* s_Instance;
 	};

@@ -21,7 +21,7 @@ class LayerStack
 		LAYER_LIST::iterator end() { return m_Layers.end(); }
 	private:
 		LAYER_LIST m_Layers;
-		LAYER_LIST::iterator m_LayerInsert;
+		unsigned int m_LayerInsertIndex = 0;
 	};
 }
 
