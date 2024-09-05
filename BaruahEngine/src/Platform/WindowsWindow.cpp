@@ -158,7 +158,7 @@ namespace Baruah {
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xpos, double ypos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			MouseMovedEvent event(xpos, ypos);
+			MouseMovedEvent event((float)xpos, (float)ypos);
 			data.EventCallback(event);
 		});
 	}
