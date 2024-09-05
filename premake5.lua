@@ -17,8 +17,10 @@ include "BaruahEngine/vendor/imgui"
 
 project "BaruahEngine"
     location "BaruahEngine"
-    kind "SharedLib"
-    language "C++"
+    kind "StaticLib"
+	language "C++"
+	staticruntime "on"
+    cppdialect "c++20"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -46,33 +48,31 @@ project "BaruahEngine"
     links { "GLFW", "Glad", "ImGui", "opengl32.lib" }
 
     filter "system:windows"
-        cppdialect "c++20"
-        staticruntime "off"
         systemversion "latest"
 
         defines { "BE_PLATFORM_WINDOW", "BE_BUILD_DLL", "GLFW_INCLUDE_NONE" }
 
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-        }
-
     filter "configurations:Debug"
         defines "BE_DEBUG"
-        symbols "On"
+        runtime "Debug"
+        symbols "on"
 
     filter "configurations:Release"
         defines "BE_Release"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "BE_Dist"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
 project "Sandbox"
     location "Sandbox"
-    kind "ConsoleApp"
-    language "C++"
+	kind "ConsoleApp"
+	language "C++"
+	staticruntime "on"
+    cppdialect "c++20"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -87,7 +87,9 @@ project "Sandbox"
     {
         "BaruahEngine/vendor/spdlog/include",
         "BaruahEngine/include",
-        "%{IncludeDir.glm}"
+        "BaruahEngine/vendor",
+        "%{IncludeDir.glm}",
+        "${prj.name}/include"
     }
 
     links
@@ -96,8 +98,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "c++20"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -107,12 +107,15 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "BE_DEBUG"
-        symbols "On"
+        defines "HZ_DEBUG"
+        symbols "on"
 
     filter "configurations:Release"
         defines "BE_Release"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "BE_Dist"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
