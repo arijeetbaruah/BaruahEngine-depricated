@@ -1,9 +1,11 @@
 #include "bepch.h"
 
-#include "../../include/Platform/WindowsWindow.h"
-#include "../../include/Events/ApplicationEvent.h"
-#include "../../include/Events/KeyEvent.h"
-#include "../../include/Events/MouseEvent.h"
+#include "Platform/WindowsWindow.h"
+#include "Platform/OpenGL/OpenGLContext.h"
+
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyEvent.h"
+#include "Events/MouseEvent.h"
 
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
@@ -48,6 +50,9 @@ namespace Baruah {
 		}
 
 		m_Window = glfwCreateWindow((int)datum.Width, (int)datum.Height, datum.Title.c_str(), nullptr, nullptr);
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
 		glfwMakeContextCurrent(m_Window);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		BE_CORE_ASSERT(status, "Failed to Initialize Glad");

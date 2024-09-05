@@ -1,4 +1,5 @@
-#include "../Window.h"
+#include "Window.h"
+#include "Rendering/GraphicsContext.h"
 
 struct GLFWwindow;
 
@@ -29,6 +30,7 @@ namespace Baruah {
 		void SetMouseCallback();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{
