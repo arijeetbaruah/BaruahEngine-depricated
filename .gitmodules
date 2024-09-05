@@ -11,3 +11,6 @@
 [submodule "vendor/glm"]
 	path = vendor/glm
 	url = https://github.com/g-truc/glm.git
+[submodule "BaruahEngine/vendor/vulkan"]
+	path = BaruahEngine/vendor/vulkan
+	url = https://github.com/KhronosGroup/Vulkan-Headers.git

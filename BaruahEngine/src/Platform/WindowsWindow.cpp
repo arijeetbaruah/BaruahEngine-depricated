@@ -1,7 +1,7 @@
 #include "bepch.h"
 
 #include "Platform/WindowsWindow.h"
-#include "Platform/OpenGL/OpenGLContext.h"
+#include "Platform/Vulkan/VulkanContext.h"
 
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
@@ -50,7 +50,7 @@ namespace Baruah {
 		}
 
 		m_Window = glfwCreateWindow((int)datum.Width, (int)datum.Height, datum.Title.c_str(), nullptr, nullptr);
-		m_Context = new OpenGLContext(m_Window);
+		m_Context = new VulkanContext(m_Window);
 		m_Context->Init();
 
 		glfwMakeContextCurrent(m_Window);

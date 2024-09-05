@@ -9,6 +9,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "BaruahEngine/vendor/GLFW/include"
 IncludeDir["Glad"] = "BaruahEngine/vendor/Glad/include"
 IncludeDir["ImGui"] = "BaruahEngine/vendor/imgui"
+IncludeDir["Vulkan"] = "BaruahEngine/vendor/vulkan/include"
 IncludeDir["glm"] = "vendor/glm"
 
 include "BaruahEngine/vendor/GLFW"
@@ -42,6 +43,7 @@ project "BaruahEngine"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.ImGui}",
+        "%{IncludeDir.Vulkan}",
         "%{IncludeDir.glm}"
     }
 
